@@ -170,9 +170,10 @@ public class RadioTest {
 
 
     @Test
-    public void maximumValue() {
+    public void maximumValue () {
         Radio cond = new Radio();
-        cond.maximumValue(11);
+        cond.setSoundVolume(10);
+        cond.maximumValue();
 
         int actual = cond.getSoundVolume();
         int expected = 10;
@@ -184,33 +185,36 @@ public class RadioTest {
     @Test
     public void maximumValue2 () {
         Radio cond = new Radio();
-        cond.maximumValue(9);
+        cond.setSoundVolume(9);
+        cond.maximumValue();
 
         int actual = cond.getSoundVolume();
-        int expected = 0;
+        int expected = 9;
 
         Assertions.assertEquals(actual, expected);
 
     }
 
-    @Test
-    public void minValue() {
-        Radio cond = new Radio();
-        cond.minValue(5);
-
-        int actual = cond.getSoundVolume();
-        int expected = 0;
-
-        Assertions.assertEquals(actual, expected);
-
-    }
     @Test
     public void minValue2 () {
         Radio cond = new Radio();
-        cond.minValue(-1);
+        cond.setSoundVolume(0);
+        cond.minValue();
 
         int actual = cond.getSoundVolume();
         int expected = 0;
+
+        Assertions.assertEquals(actual, expected);
+
+    }
+    @Test
+    public void minValue () {
+        Radio cond = new Radio();
+        cond.setSoundVolume(1);
+        cond.minValue();
+
+        int actual = cond.getSoundVolume();
+        int expected = 1;
 
         Assertions.assertEquals(actual, expected);
 

@@ -65,20 +65,16 @@ public class Radio {
         }
     }
 
-    public void maximumValue ( int soundVolume) {
-        if (soundVolume > 10) {
+    public void maximumValue () {
+        if (soundVolume == 10) {
             soundVolume = 10;
-        } else {
-            return;
         }
         this.soundVolume = soundVolume;
     }
 
-    public void minValue ( int soundVolume) {
-        if (soundVolume < 0) {
+    public void minValue () {
+        if (soundVolume == 0) {
             soundVolume = 0;
-        } else {
-            return;
         }
         this.soundVolume = soundVolume;
     }
