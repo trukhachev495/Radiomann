@@ -39,11 +39,14 @@ public class RadioTest {
 
         Assertions.assertEquals(actual, expected);
     }
+
     @Test
 
     public void next() {
         Radio cond = new Radio();
-        cond.next(5);
+        cond.setCurrentRadioStation(5);
+
+        cond.next();
 
         int actual = cond.getCurrentRadioStation();
         int expected = 6;
@@ -53,7 +56,8 @@ public class RadioTest {
     @Test
     public void next2() {
         Radio cond = new Radio();
-        cond.next(10);
+        cond.setCurrentRadioStation(9);
+        cond.next();
 
         int actual = cond.getCurrentRadioStation();
         int expected = 0;
@@ -63,7 +67,8 @@ public class RadioTest {
     @Test
     public void prev() {
         Radio cond = new Radio();
-        cond.prev(5);
+        cond.setCurrentRadioStation(5);
+        cond.prev();
 
         int actual = cond.getCurrentRadioStation();
         int expected = 4;
@@ -73,7 +78,8 @@ public class RadioTest {
     @Test
     public void prev2() {
         Radio cond = new Radio();
-        cond.prev(-1);
+        cond.setCurrentRadioStation(0);
+        cond.prev();
 
         int actual = cond.getCurrentRadioStation();
         int expected = 9;
@@ -170,7 +176,7 @@ public class RadioTest {
 
 
     @Test
-    public void maximumValue () {
+    public void maximumValue() {
         Radio cond = new Radio();
         cond.setSoundVolume(10);
         cond.maximumValue();
@@ -183,7 +189,7 @@ public class RadioTest {
     }
 
     @Test
-    public void maximumValue2 () {
+    public void maximumValue2() {
         Radio cond = new Radio();
         cond.setSoundVolume(9);
         cond.maximumValue();
@@ -196,7 +202,7 @@ public class RadioTest {
     }
 
     @Test
-    public void minValue2 () {
+    public void minValue2() {
         Radio cond = new Radio();
         cond.setSoundVolume(0);
         cond.minValue();
@@ -207,8 +213,9 @@ public class RadioTest {
         Assertions.assertEquals(actual, expected);
 
     }
+
     @Test
-    public void minValue () {
+    public void minValue() {
         Radio cond = new Radio();
         cond.setSoundVolume(1);
         cond.minValue();
