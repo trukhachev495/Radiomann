@@ -53,22 +53,16 @@ public class Radio {
         return soundVolume;
     }
 
-    public void increaseVolume(int soundVolume) {
+    public void increaseVolume() {
         if (soundVolume < 10) {
             soundVolume = soundVolume + 1;
-        } else {
-            return;
         }
-        this.soundVolume = soundVolume;
     }
 
-    public void reduceVolume(int soundVolume) {
+    public void reduceVolume() {
         if (soundVolume < 10) {
             soundVolume = soundVolume -1;
-        } else {
-            return;
         }
-        this.soundVolume = soundVolume;
     }
 
     public void maximumValue ( int soundVolume) {

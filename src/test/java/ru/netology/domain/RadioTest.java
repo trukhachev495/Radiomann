@@ -119,7 +119,9 @@ public class RadioTest {
     @Test
     public void increaseVolume() {
         Radio cond = new Radio();
-        cond.increaseVolume(9);
+        cond.setSoundVolume(9);
+
+        cond.increaseVolume();
 
         int actual = cond.getSoundVolume();
         int expected = 10;
@@ -130,10 +132,12 @@ public class RadioTest {
     @Test
     public void increaseVolume2() {
         Radio cond = new Radio();
-        cond.increaseVolume(11);
+        cond.setSoundVolume(10);
+
+        cond.increaseVolume();
 
         int actual = cond.getSoundVolume();
-        int expected = 0;
+        int expected = 10;
 
         Assertions.assertEquals(actual, expected);
     }
@@ -141,7 +145,9 @@ public class RadioTest {
     @Test
     public void reduceVolume() {
         Radio cond = new Radio();
-        cond.reduceVolume(9);
+        cond.setSoundVolume(9);
+
+        cond.reduceVolume();
 
         int actual = cond.getSoundVolume();
         int expected = 8;
@@ -152,13 +158,16 @@ public class RadioTest {
     @Test
     public void reduceVolume2() {
         Radio cond = new Radio();
-        cond.reduceVolume(11);
+        cond.setSoundVolume(10);
+
+        cond.reduceVolume();
 
         int actual = cond.getSoundVolume();
-        int expected = 0;
+        int expected = 10;
 
         Assertions.assertEquals(actual, expected);
     }
+
 
     @Test
     public void maximumValue() {
