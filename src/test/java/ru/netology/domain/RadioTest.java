@@ -7,35 +7,29 @@ public class RadioTest {
     @Test
     public void numberValidity() {
         Radio cond = new Radio();
-
-        cond.setCurrentRadioStation(8);
-
+        cond.setCurrentRadioStation();
         int actual = cond.getCurrentRadioStation();
-        int expected = 8;
+        int expected = 9;
 
         Assertions.assertEquals(actual, expected);
     }
 
     @Test
     public void numberValidity2() {
-        Radio cond = new Radio();
-
-        cond.setCurrentRadioStation(10);
-
+        Radio cond = new Radio(10);
+        cond.setCurrentRadioStation();
         int actual = cond.getCurrentRadioStation();
-        int expected = 0;
+        int expected = 10;
 
         Assertions.assertEquals(actual, expected);
     }
 
     @Test
     public void numberValidity3() {
-        Radio cond = new Radio();
-
-        cond.setCurrentRadioStation(-1);
-
+        Radio cond = new Radio(-1);
+        cond.setCurrentRadioStation();
         int actual = cond.getCurrentRadioStation();
-        int expected = 0;
+        int expected = -1;
 
         Assertions.assertEquals(actual, expected);
     }
@@ -43,11 +37,8 @@ public class RadioTest {
     @Test
 
     public void next() {
-        Radio cond = new Radio();
-        cond.setCurrentRadioStation(5);
-
+        Radio cond = new Radio(5);
         cond.next();
-
         int actual = cond.getCurrentRadioStation();
         int expected = 6;
         Assertions.assertEquals(actual, expected);
@@ -55,19 +46,17 @@ public class RadioTest {
 
     @Test
     public void next2() {
-        Radio cond = new Radio();
-        cond.setCurrentRadioStation(9);
+        Radio cond = new Radio(9);
         cond.next();
 
         int actual = cond.getCurrentRadioStation();
-        int expected = 0;
+        int expected = cond.getMinRadioStation();
         Assertions.assertEquals(actual, expected);
     }
 
     @Test
     public void prev() {
-        Radio cond = new Radio();
-        cond.setCurrentRadioStation(5);
+        Radio cond = new Radio(5);
         cond.prev();
 
         int actual = cond.getCurrentRadioStation();
@@ -77,23 +66,21 @@ public class RadioTest {
 
     @Test
     public void prev2() {
-        Radio cond = new Radio();
-        cond.setCurrentRadioStation(0);
+        Radio cond = new Radio(0);
         cond.prev();
 
         int actual = cond.getCurrentRadioStation();
-        int expected = 9;
+        int expected = cond.getMaxRadioStation();
         Assertions.assertEquals(actual, expected);
     }
 
     @Test
     public void numberValiditySound() {
         Radio cond = new Radio();
-
-        cond.setSoundVolume(6);
+           cond.setSoundVolume(60);
 
         int actual = cond.getSoundVolume();
-        int expected = 6;
+        int expected = 60;
 
         Assertions.assertEquals(actual, expected);
     }
@@ -114,75 +101,21 @@ public class RadioTest {
     public void numberValiditySound2() {
         Radio cond = new Radio();
 
-        cond.setSoundVolume(11);
+        cond.setSoundVolume(101);
 
         int actual = cond.getSoundVolume();
         int expected = 0;
 
         Assertions.assertEquals(actual, expected);
     }
-
-    @Test
-    public void increaseVolume() {
-        Radio cond = new Radio();
-        cond.setSoundVolume(9);
-
-        cond.increaseVolume();
-
-        int actual = cond.getSoundVolume();
-        int expected = 10;
-
-        Assertions.assertEquals(actual, expected);
-    }
-
-    @Test
-    public void increaseVolume2() {
-        Radio cond = new Radio();
-        cond.setSoundVolume(10);
-
-        cond.increaseVolume();
-
-        int actual = cond.getSoundVolume();
-        int expected = 10;
-
-        Assertions.assertEquals(actual, expected);
-    }
-
-    @Test
-    public void reduceVolume() {
-        Radio cond = new Radio();
-        cond.setSoundVolume(9);
-
-        cond.reduceVolume();
-
-        int actual = cond.getSoundVolume();
-        int expected = 8;
-
-        Assertions.assertEquals(actual, expected);
-    }
-
-    @Test
-    public void reduceVolume2() {
-        Radio cond = new Radio();
-        cond.setSoundVolume(10);
-
-        cond.reduceVolume();
-
-        int actual = cond.getSoundVolume();
-        int expected = 10;
-
-        Assertions.assertEquals(actual, expected);
-    }
-
-
     @Test
     public void maximumValue() {
         Radio cond = new Radio();
-        cond.setSoundVolume(10);
+        cond.setSoundVolume(100);
         cond.maximumValue();
 
         int actual = cond.getSoundVolume();
-        int expected = 10;
+        int expected = 100;
 
         Assertions.assertEquals(actual, expected);
 
@@ -191,18 +124,18 @@ public class RadioTest {
     @Test
     public void maximumValue2() {
         Radio cond = new Radio();
-        cond.setSoundVolume(9);
+        cond.setSoundVolume(99);
         cond.maximumValue();
 
         int actual = cond.getSoundVolume();
-        int expected = 9;
+        int expected = 99;
 
         Assertions.assertEquals(actual, expected);
 
     }
 
     @Test
-    public void minValue2() {
+    public void minValue() {
         Radio cond = new Radio();
         cond.setSoundVolume(0);
         cond.minValue();
@@ -215,7 +148,7 @@ public class RadioTest {
     }
 
     @Test
-    public void minValue() {
+    public void minValue2() {
         Radio cond = new Radio();
         cond.setSoundVolume(1);
         cond.minValue();
