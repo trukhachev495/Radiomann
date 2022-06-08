@@ -16,10 +16,10 @@ public class RadioTest {
 
     @Test
     public void numberValidity2() {
-        Radio cond = new Radio(10);
+        Radio cond = new Radio(9);
         cond.setCurrentRadioStation();
         int actual = cond.getCurrentRadioStation();
-        int expected = 10;
+        int expected = 9;
 
         Assertions.assertEquals(actual, expected);
     }
@@ -28,8 +28,18 @@ public class RadioTest {
     public void numberValidity3() {
         Radio cond = new Radio(-1);
         cond.setCurrentRadioStation();
-        int actual = cond.getCurrentRadioStation();
-        int expected = -1;
+        int actual = cond.getMinRadioStation();
+        int expected = 0;
+
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void numberValidity4() {
+        Radio cond = new Radio(11);
+        cond.setCurrentRadioStation();
+        int actual = cond.getMinRadioStation();
+        int expected = 0;
 
         Assertions.assertEquals(actual, expected);
     }
