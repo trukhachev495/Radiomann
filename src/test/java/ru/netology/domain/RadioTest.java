@@ -16,10 +16,10 @@ public class RadioTest {
 
     @Test
     public void numberValidity2() {
-        Radio cond = new Radio(9);
+        Radio cond = new Radio(8);
         cond.setCurrentRadioStation();
         int actual = cond.getCurrentRadioStation();
-        int expected = 9;
+        int expected = 8;
 
         Assertions.assertEquals(actual, expected);
     }
@@ -87,7 +87,7 @@ public class RadioTest {
     @Test
     public void numberValiditySound() {
         Radio cond = new Radio();
-           cond.setSoundVolume(60);
+        cond.setSoundVolume(60);
 
         int actual = cond.getSoundVolume();
         int expected = 60;
@@ -118,6 +118,7 @@ public class RadioTest {
 
         Assertions.assertEquals(actual, expected);
     }
+
     @Test
     public void maximumValue() {
         Radio cond = new Radio();

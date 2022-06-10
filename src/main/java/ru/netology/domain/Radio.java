@@ -9,12 +9,14 @@ public class Radio {
     private int minSoundVolume = 0;
     private int soundVolume = minSoundVolume;
 
-    public Radio(int currentRadioStation) {
-        this.currentRadioStation= currentRadioStation;
-        }
+    public Radio(int numberStation) {
+        this.numberStation = numberStation;
+        this.currentRadioStation = numberStation;
 
-    public Radio () {
-        this.numberStation = numberStation -1;
+    }
+
+    public Radio() {
+        this.numberStation--;
         this.currentRadioStation = numberStation;
 
     }
