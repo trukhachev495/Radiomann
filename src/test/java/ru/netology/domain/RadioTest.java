@@ -4,15 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
-    @Test
-    public void numberValidity() {
-        Radio cond = new Radio(20);
-        cond.setCurrentRadioStation(6);
-        int actual = cond.getCurrentRadioStation();
-        int expected = 6;
-
-        Assertions.assertEquals(actual, expected);
-    }
 
     @Test
     public void numberValidity2() {
