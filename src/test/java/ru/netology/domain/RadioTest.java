@@ -6,18 +6,18 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
     @Test
     public void numberValidity() {
-        Radio cond = new Radio();
-        cond.setCurrentRadioStation();
+        Radio cond = new Radio(20);
+        cond.setCurrentRadioStation(6);
         int actual = cond.getCurrentRadioStation();
-        int expected = 9;
+        int expected = 6;
 
         Assertions.assertEquals(actual, expected);
     }
 
     @Test
     public void numberValidity2() {
-        Radio cond = new Radio(8);
-        cond.setCurrentRadioStation();
+        Radio cond = new Radio();
+        cond.setCurrentRadioStation(8);
         int actual = cond.getCurrentRadioStation();
         int expected = 8;
 
@@ -26,8 +26,8 @@ public class RadioTest {
 
     @Test
     public void numberValidity3() {
-        Radio cond = new Radio(-1);
-        cond.setCurrentRadioStation();
+        Radio cond = new Radio();
+        cond.setCurrentRadioStation(11);
         int actual = cond.getMinRadioStation();
         int expected = 0;
 
@@ -36,8 +36,8 @@ public class RadioTest {
 
     @Test
     public void numberValidity4() {
-        Radio cond = new Radio(11);
-        cond.setCurrentRadioStation();
+        Radio cond = new Radio();
+        cond.setCurrentRadioStation(-1);
         int actual = cond.getMinRadioStation();
         int expected = 0;
 
