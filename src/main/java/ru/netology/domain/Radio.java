@@ -1,27 +1,50 @@
 package ru.netology.domain;
 
 public class Radio {
+    private int numberOfStations;
+    private int maxRadioStation = 9;
+    private int minRadioStation = 0;
     private int currentRadioStation;
-    private int soundVolume;
+    private int maxSoundVolume = 100;
+    private int minSoundVolume = 0;
+    private int soundVolume = minSoundVolume;
+
+    public Radio(int numberOfStations) {
+        this.numberOfStations = numberOfStations;
+        this.maxRadioStation = numberOfStations -1;
+
+    }
+
+    public Radio() {
+        this(10);
+    }
+
 
     public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation < 0) {
+        if (currentRadioStation < minRadioStation) {
             return;
         }
-        if (currentRadioStation > 9) {
+        if (currentRadioStation > maxRadioStation) {
             return;
         }
         this.currentRadioStation = currentRadioStation;
     }
 
-    public int getCurrentRadioStation() {
+    public int getMaxRadioStation() {
+        return maxRadioStation;
+    }
 
+    public int getMinRadioStation() {
+        return minRadioStation;
+    }
+
+    public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
     public void next() {
-        if (currentRadioStation == 9) {
-            currentRadioStation = 0;
+        if (currentRadioStation == maxRadioStation) {
+            currentRadioStation = minRadioStation;
             this.currentRadioStation = currentRadioStation;
         } else {
             currentRadioStation = currentRadioStation + 1;
@@ -30,9 +53,8 @@ public class Radio {
     }
 
     public void prev() {
-        if (currentRadioStation == 0) {
-            currentRadioStation = 9;
-            this.currentRadioStation = currentRadioStation;
+        if (currentRadioStation == minRadioStation) {
+            currentRadioStation = maxRadioStation;
         } else {
             currentRadioStation = currentRadioStation - 1;
         }
@@ -40,10 +62,10 @@ public class Radio {
     }
 
     public void setSoundVolume(int soundVolume) {
-        if (soundVolume < 0) {
+        if (soundVolume < minSoundVolume) {
             return;
         }
-        if (soundVolume > 10) {
+        if (soundVolume > maxSoundVolume) {
             return;
         }
         this.soundVolume = soundVolume;
@@ -53,28 +75,16 @@ public class Radio {
         return soundVolume;
     }
 
-    public void increaseVolume() {
-        if (soundVolume < 10) {
-            soundVolume = soundVolume + 1;
-        }
-    }
-
-    public void reduceVolume() {
-        if (soundVolume < 10) {
-            soundVolume = soundVolume - 1;
-        }
-    }
-
     public void maximumValue() {
-        if (soundVolume == 10) {
-            soundVolume = 10;
+        if (soundVolume == maxSoundVolume) {
+            soundVolume = maxSoundVolume;
         }
         this.soundVolume = soundVolume;
     }
 
     public void minValue() {
-        if (soundVolume <= 0) {
-            soundVolume = 0;
+        if (soundVolume <= minSoundVolume) {
+            soundVolume = minSoundVolume;
         }
         this.soundVolume = soundVolume;
     }
